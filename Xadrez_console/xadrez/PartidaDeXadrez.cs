@@ -15,13 +15,14 @@ namespace xadrez
             tab = new Tabuleiro(8,8);
             turno = 1;
             jogadorAtual = Cor.Branca;
+            terminada = false;
             colocarPecas();
         }
 
         public void executaMovimento(Posicao origem, Posicao destino)
         {
             Peca p = tab.retirarPeca(origem);
-            p.incrementarQteMovimetos();
+            p.incrementarQteMovimentos();
             Peca pecaCapturada = tab.retirarPeca(destino);
             tab.colocarPeca(p, destino);
         }
