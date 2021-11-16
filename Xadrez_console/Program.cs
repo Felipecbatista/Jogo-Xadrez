@@ -2,6 +2,7 @@
 using tabuleiro;
 using xadrez;
 
+
 namespace Xadrez_console
 {
     class Program
@@ -43,7 +44,7 @@ namespace Xadrez_console
                     }                    
                 }
                 Console.Clear();
-                Tela.imprimirTabuleiro(partida.tab);
+                Tela.imprimirPartida(partida);
             }
             catch(TabuleiroException e)
             {
