@@ -12,7 +12,10 @@ namespace xadrez
         public bool terminada { get; private set; }
         private HashSet<Peca> pecas;
         private HashSet<Peca> capturadas;
+<<<<<<< HEAD
         public bool xeque { get; private set; }
+=======
+>>>>>>> a268933aa8088f4c9e1343e04876d6464a25e6e6
 
         public PartidaDeXadrez()
         {
@@ -20,7 +23,10 @@ namespace xadrez
             turno = 1;
             jogadorAtual = Cor.Branca;
             terminada = false;
+<<<<<<< HEAD
             xeque = false;
+=======
+>>>>>>> a268933aa8088f4c9e1343e04876d6464a25e6e6
             pecas = new HashSet<Peca>();
             capturadas = new HashSet<Peca>();
             colocarPecas();
@@ -36,7 +42,10 @@ namespace xadrez
             {
                 capturadas.Add(pecaCapturada);
             }
+<<<<<<< HEAD
             return pecaCapturada;
+=======
+>>>>>>> a268933aa8088f4c9e1343e04876d6464a25e6e6
         }
 
         public void desfazMovimento(Posicao origem, Posicao destino, Peca pecaCapturada)
@@ -176,6 +185,39 @@ namespace xadrez
                 }
             }
             return false;
+        }
+
+        public void colocarNovaPeca(char coluna, int linha, Peca peca)
+        {
+            tab.colocarPeca(peca, new PosicaoXadrez(coluna, linha).toPosicao());
+            pecas.Add(peca);
+        }
+
+        public HashSet<Peca>pecasCapturadas(Cor cor)
+        {
+            HashSet<Peca> aux = new HashSet<Peca>();
+            foreach(Peca x in capturadas)
+            {
+                if (x.cor == cor)
+                {
+                    aux.Add(x);
+                }
+            }
+            return aux;
+        }
+
+        public HashSet<Peca>pecasEmJogo(Cor cor)
+        {
+            HashSet<Peca> aux = new HashSet<Peca>();
+            foreach (Peca x in capturadas)
+            {
+                if (x.cor == cor)
+                {
+                    aux.Add(x);
+                }
+            }
+            aux.ExceptWith(pecasCapturadas(cor));
+            return aux;
         }
 
         public void colocarNovaPeca(char coluna, int linha, Peca peca)
